@@ -3,7 +3,7 @@
 
 # Step 1 : Get the link
 # GITHUB LINK  - https://github.com/Kaizen281996/CRUD-EXAM
-# POSTMAN LINK - 
+# POSTMAN LINK - https://api.postman.com/collections/24473987-15010ca1-d540-4252-925b-efaa1c21f435?access_key=PMAT-01H1HPM827T7DVKEB6S8XK813W
 
 # 2, Download the file repository Files
 # 3, Download MySQL Database file ‘crudsql’
