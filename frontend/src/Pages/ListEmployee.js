@@ -52,29 +52,28 @@ export default function Posts() {
       }
   }
 
-
-    // DELETE ALERT
-    const SubmitDelete = async (id) => {
-      confirmAlert({
-        title: "Confirm to delete",
-        message: "Are you sure to do this.",
-        buttons: [
-          {
-            label: "Yes",
-            onClick: () => alert("Successful Delete",
-                           window.location.reload(),
-                           axios.delete('http://localhost:8081/api/employee/delete/'+id))    
-          },
-          {
-            label: "No",
-            onClick: () => window.location.reload()
-          }
-        ]
-      });
-    };
+  // DELETE ALERT
+  const SubmitDelete = async (id) => {
+    confirmAlert({
+      title: "Confirm to delete",
+      message: "Are you sure to do this.",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => alert("Successful Delete",
+                          window.location.reload(),
+                          axios.delete('http://localhost:8081/api/employee/delete/'+id))    
+        },
+        {
+          label: "No",
+          onClick: () => window.location.reload()
+        }
+      ]
+    });
+  };
 
 return (
-<div className='d-flex bg-dark justify-content-center align-items-center' style={{ borderRadius: 'none' }}>       
+<div className='d-flex justify-content-center align-items-center' >       
 <div className='w-100 bg-white rounded p-5'>           
 
     <h2> Employee List 
@@ -93,7 +92,7 @@ return (
     </div>
 
     <table className='table mt-3'>               
-    <thead style={{background:'#333', color:'white', fontWeight: 'none' }}>            
+    <thead style={{background:'gray', color:'white', fontWeight: 'none' }}>            
         <tr> 
             <th>ID</th>            
             <th>Employee Name</th>     
@@ -105,14 +104,13 @@ return (
         </tr>               
     </thead>
 
-
     {searchInput.length > 1 ? (
         filteredResults.map((item) => {
             return (
             <tbody>               
             <tr>
                 <td>{item.ID}</td>
-                <td>{item.Name}</td>
+                <td>{item.Lastname} {item.Firstname} {item.Middlename}</td>
                 <td>{item.Birth}</td>   
                 <td>{item.Age}</td>
                 <td>{item.Address}</td>   
@@ -136,7 +134,7 @@ return (
             <tbody>                 
             <tr>
               <td>{item.ID}</td>
-              <td>{item.Name}</td>
+              <td>{item.Lastname} {item.Firstname} {item.Middlename}</td>
               <td>{item.Birth}</td>   
               <td>{item.Age}</td>
               <td>{item.Address}</td>   
