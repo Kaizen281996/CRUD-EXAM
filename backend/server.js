@@ -27,30 +27,34 @@ app.get("/", (req, res) => {
 
 // ADD
 app.post('/api/employee/add', (req, res) => {   
-    const sql = "INSERT INTO employee (Name, Month, Day, Year, Age, Address, Contact) VALUES (?)";    
+    const sql = "INSERT INTO employee (Lastname, Firstname, Middlename, Month, Day, Year, Age, Address, Contact) VALUES (?)";    
     const values = 
         [ 
-           req.body.name,
-           req.body.month,
-           req.body.day,
-           req.body.year,
-           req.body.age,
-           req.body.address,
-           req.body.contact 
+            req.body.lastname,
+            req.body.firstname,
+            req.body.middlename,
+            req.body.month,
+            req.body.day,
+            req.body.year,
+            req.body.age,
+            req.body.address,
+            req.body.contact 
         ]   
     db.query(sql, [values], (error) => {  
       if(error) 
-      return res.json("Connection Error");   
+      return res.json("Connection Error to add");   
       return res.json("Successfull Add Employee");   
     })
 });
 
 // UPDATE
 app.put('/api/employee/update/:id', (req, res) => {   
-    const sql = "update employee set Name = ?, Month = ?, Day = ?, Year = ?, Age = ?, Address = ?, Contact = ? where ID = ?";   
+    const sql = "update employee set Lastname = ?, Firstname = ?, Middlename = ?, Month = ?, Day = ?, Year = ?, Age = ?, Address = ?, Contact = ? where ID = ?";   
     const values = 
         [ 
-            req.body.name,
+            req.body.lastname,
+            req.body.firstname,
+            req.body.middlename,
             req.body.month,
             req.body.day,
             req.body.year,
